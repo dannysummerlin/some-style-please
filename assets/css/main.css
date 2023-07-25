@@ -1,5 +1,19 @@
 ---
 ---
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-primary: #222;
+		--color-secondary: #424;
+		--color-background: #eee;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #eee;
+		--color-secondary: #bbb;
+		--color-background: #222;
+	}
+}
 * {margin:0; padding:0}
 body {
 	background: var(--color-background);
@@ -47,19 +61,3 @@ nav li ul {
 }
 nav li:hover ul { display:block }
 nav li ul a { background-color:var(--color-secondary) }
-
-@media (prefers-color-scheme: light) {
-	:root {
-		--color-primary: #222;
-		--color-secondary: #424;
-		--color-background: #fff;
-	}
-}
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-primary: #222;
-		--color-secondary: #424;
-		--color-background: #fff;
-	}
-	a {color:red}
-}
