@@ -16,7 +16,7 @@
 }
 * {margin:0; padding:0}
 body, nav, header, main, aside, article, footer {display: grid;}
-nav { grid-area: nav, justify-content: end }
+nav { grid-area: nav; justify-content: end }
 header { grid-area: header }
 main { grid-area: main }
 aside { grid-area: sidebar }
