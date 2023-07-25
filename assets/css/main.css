@@ -1,9 +1,11 @@
 ---
 ---
-:root {
-	--color-primary: #222;
-	--color-secondary: #424;
-	--color-background: #fff;
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-primary: #222;
+		--color-secondary: #424;
+		--color-background: #fff;
+	}
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -11,6 +13,7 @@
 		--color-secondary: #424;
 		--color-background: #fff;
 	}
+	a {color:red}
 }
 // -------------------------------------------- //
 
