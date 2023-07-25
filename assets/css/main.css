@@ -37,7 +37,6 @@ body {
   grid-template-rows: auto;
   grid-template-areas:
     "header header"
-    "main main"
     "sidebar article"
     "footer footer";
 }
