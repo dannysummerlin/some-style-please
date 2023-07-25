@@ -2,9 +2,11 @@
 <html lang="{{ page.lang | default: "en" }}">
 	{%- include head.html -%}
 	<body data-theme="{{ site.theme_config.appearance | default: "auto" }}">
-		<nav>
-			{%-include menu_item.html collection=site.data.menu.entries-%}
-		</nav>
+		<header>
+			<nav>
+				{%-include menu_item.html collection=site.data.menu.entries-%}
+			</nav>
+		</header>
 		<main class="page-content" aria-label="Content">
 				{{ content }}
 		</main>
@@ -13,5 +15,7 @@
 				<script type="text/javascript" src="{{ site.baseurl }}/assets/js/{{ js_file }}.js"></script>
 			{% endfor %}
 		{% endif %}
+		<footer>
+		</footer>
 	</body>
 </html>
