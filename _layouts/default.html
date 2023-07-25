@@ -6,16 +6,14 @@
 			{%-include menu_item.html collection=site.data.menu.entries-%}
 		</nav>
 		<header>
-			{% if page.title %}
-				<h1>{{ page.title }}</h1>
+			{% if title %}
+				<h1>{{ title }}</h1>
 			{% endif %}
-			{% if page.intro %}
-				<h2>{{ page.intro | markdownify }}</h2>
+			{% if intro %}
+				<h2>{{ intro | markdownify }}</h2>
 			{% endif %}
 		</header>
-		<main aria-label="Content">
-			{{ content }}	
-		</main>
+		{{ content }}	
 		{% if page.custom_js %}
 			{% for js_file in page.custom_js %}
 				<script type="text/javascript" src="{{ site.baseurl }}/assets/js/{{ js_file }}.js"></script>
