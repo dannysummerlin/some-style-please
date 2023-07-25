@@ -7,8 +7,8 @@
 				{%-include menu_item.html collection=site.data.menu.entries-%}
 			</nav>
 		</header>
-		<main class="page-content" aria-label="Content">
-				{{ content }}
+		<main aria-label="Content">
+				{{ content }}	
 		</main>
 		{% if page.custom_js %}
 			{% for js_file in page.custom_js %}
