@@ -6,12 +6,8 @@
 			{%-include menu_item.html collection=site.data.menu.entries-%}
 		</nav>
 		<header>
-			{% if title %}
-				<h1>{{ title }}</h1>
-			{% endif %}
-			{% if intro %}
-				<h2>{{ intro | markdownify }}</h2>
-			{% endif %}
+			<h1>{{ title }}</h1>
+			{{ intro | markdownify }}
 		</header>
 		{{ content }}	
 		{% if page.custom_js %}
