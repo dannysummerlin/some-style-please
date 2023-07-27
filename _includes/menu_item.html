@@ -6,9 +6,11 @@
 			{%- else -%}
 				{{ item.title }}
 			{%- endif -%}
+
 			{%-if item.entries-%}
 				{%-include menu_item.html collection=item.entries-%}
 			{%-endif-%}
+
 			{%-if item.post_list-%}
 				{%
 					include post_list.html
@@ -19,6 +21,7 @@
 						show_more_url=item.post_list.show_more_url
 			 -%}
 			{%-endif-%}
+
 			{%-if item.page_list-%}
 				{%
 					include page_list.html
@@ -29,6 +32,7 @@
 						show_more_url=item.page_list.show_more_url
 			 -%}
 			{%-endif-%}
+
 		</li>
 	{%-endfor-%}
 </ul>
