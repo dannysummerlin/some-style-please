@@ -60,7 +60,7 @@ a:hover{ color:var(--color-secondary) }
 *:target { background: var(--color-secondary); }
 
 nav ul { list-style-type:none; }
-nav li { float:left; position:relative; padding:0 1rem; }
+nav li { float:left; position:relative; padding:0 0.5rem; }
 nav li a {
 	display:block;
 	text-decoration:none;

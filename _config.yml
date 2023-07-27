@@ -4,7 +4,7 @@ email: hello@summerlin.co # email of site's author
 url: https://summerlin.co # root address of the site
 # baseurl: "/some-style-please" # subpath of the site, e.g. "/blog" (leave it blank "" if you're site shouldn't use a subpath)
 description: > # description of the site (multiple lines allowed)
-  A light CSS, fast, minimalist Jekyll theme.
+  A light CSS, fast, minimalist Jekyll theme based on no-style-please.
 
 permalink: /:slug.html
 

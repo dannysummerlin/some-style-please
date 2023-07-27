@@ -10,6 +10,10 @@
   {%-assign limit_exceeded = false-%}
 {%-endif-%}
 
+category: {{ include.category }}
+size: {{ pages.size }}
+total: {{ site.pages.size }}
+
 {%- if pages.size > 0 -%}
   <ul>
     {%- for page in pages limit: include.limit -%}
