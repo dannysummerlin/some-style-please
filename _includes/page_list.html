@@ -1,7 +1,7 @@
 {%-if include.category-%}
-	{%-assign pages = site.categories[include.category] | sort: "order"-%}  
+	{%-assign pages = site.categories[include.category]-%}  
 {%-else-%}
-	{%-assign pages = site.pages | sort: "order"-%}
+	{%-assign pages = site.pages-%}
 {%-endif-%}
 
 {%-if include.limit and pages.size > include.limit-%}
@@ -20,13 +20,13 @@ found: {{ pages.size }}
 {%-if pages.size > 0-%}
 	<ul>
 		{%-if include.order == "asc"-%}
-			{%-for page in pages limit: include.limit-%}
+			{%-for page in pages limit: include.limit | sort: "order"-%}
 					<li>
 						<a href="{{ page.url | relative_url }}">{{ page.title }}</a>
 					</li>
 			{%-endfor-%}
 		{%-else-%}
-			{%- for page in pages limit: include.limit reversed -%}
+			{%- for page in pages limit: include.limit | sort: "order" reversed -%}
 					<li>
 						<a href="{{ page.url | relative_url }}">{{ page.title }}</a>
 					</li>
