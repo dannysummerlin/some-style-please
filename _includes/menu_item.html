@@ -19,6 +19,16 @@
 						show_more_url=item.post_list.show_more_url
 			 -%}
 			{%-endif-%}
+			{%-if item.page_list-%}
+				{%
+					include page_list.html
+						category=item.page_list.category
+						limit=item.page_list.limit
+						show_more=item.page_list.show_more
+						show_more_text=item.page_list.show_more_text
+						show_more_url=item.page_list.show_more_url
+			 -%}
+			{%-endif-%}
 		</li>
 	{%-endfor-%}
 </ul>
