@@ -1,0 +1,28 @@
+{%-assign collection = site.collections[include.collection]-%}  
+
+{%-if include.limit and collection.size > include.limit-%}
+	{%-assign limit_exceeded = true-%}
+{%-else-%}
+	{%-assign limit_exceeded = false-%}
+{%-endif-%}
+
+{%-if collection.size > 0-%}
+	<ul>
+		{%-if include.order == "asc"-%}
+			{%-for item in collection limit: include.limit | sort: "order"-%}
+					<li>
+						<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+					</li>
+			{%-endfor-%}
+		{%-else-%}
+			{%- for item in collection limit: include.limit | sort: "order" reversed -%}
+					<li>
+						<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+					</li>
+			{%- endfor -%}
+		{%-endif-%}
+		{%-if include.show_more and limit_exceeded-%}
+			<li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
+		{%-endif-%}
+	</ul>
+{%-endif-%}
