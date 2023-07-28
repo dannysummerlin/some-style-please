@@ -1,5 +1,8 @@
 {%-assign collection = site.collections[include.collection]-%}  
-
+<!-- {{ include.collection}}
+ {{ collection.size }}
+ {{ site.collections }}
+-->
 {%-if include.limit and collection.size > include.limit-%}
 	{%-assign limit_exceeded = true-%}
 {%-else-%}
