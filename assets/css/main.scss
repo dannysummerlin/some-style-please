@@ -26,7 +26,7 @@ body {
 	background: var(--color-background);
 	color: var(--color-primary);
 	font-family: system-ui;
-	font-size: {{ site.style.font-size  }};
+	font-size: {{ site.style.fontsize }};
 	line-height: 1.4;
 	min-height: 100%;
 	overflow-wrap: break-word;
