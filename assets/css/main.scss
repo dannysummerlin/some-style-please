@@ -2,16 +2,16 @@
 ---
 @media (prefers-color-scheme: light) {
 	:root {
-		--color-primary: #222;
-		--color-secondary: #424;
-		--color-background: #eee;
+		--color-primary: {{ site.style.default.color-primary }};
+		--color-secondary: {{ site.style.default.color-secondary }};
+		--color-background: {{ site.style.default.color-background }};
 	}
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-primary: #eee;
-		--color-secondary: #bbb;
-		--color-background: #222;
+		--color-primary: {{ site.style.dark-mode.color-primary }};
+		--color-secondary: {{ site.style.dark-mode.color-secondary }};
+		--color-background: {{ site.style.dark-mode.color-background }};
 	}
 }
 * {margin:0; padding:0}
@@ -26,7 +26,7 @@ body {
 	background: var(--color-background);
 	color: var(--color-primary);
 	font-family: system-ui;
-	font-size: 16px;
+	font-size: {{ site.style.font-size  }};
 	line-height: 1.4;
 	min-height: 100%;
 	overflow-wrap: break-word;
