@@ -1,37 +1,39 @@
 {%-assign collection = site[include.collection]-%}  
+{%-if collection.size == 0-%}
+{%-else-%}
+	{%-assign order_by = "order"-%}
+	{%-if include.order_by-%}
+		{%-assign order_by = include.order_by-%}
+	{%-endif-%}
 
-{%-assign order_by = "order"-%}
-{%-if include.order_by-%}
-	{%-assign order_by = include.order_by-%}
-{%-endif-%}
+	{%-assign sort_order = "asc"-%}
+	{%-if include.sort_order-%}
+		{%-assign sort_order = include.sort_order-%}
+	{%-endif-%}
 
-{%-assign sort_order = "asc"-%}
-{%-if include.sort_order-%}
-	{%-assign sort_order = include.sort_order-%}
-{%-endif-%}
+	{%-assign limit_exceeded = false-%}
+	{%-if include.limit and collection.size > include.limit-%}
+		{%-assign limit_exceeded = true-%}
+	{%-endif-%}
 
-{%-assign limit_exceeded = false-%}
-{%-if include.limit and collection.size > include.limit-%}
-	{%-assign limit_exceeded = true-%}
-{%-endif-%}
+	{%-assign sorted_collection = collection limit: include.limit | sort: order_by-%}
+	{%-if sort_order != "asc"-%}
+		{%-assign sorted_collection = collection limit: include.limit | sort: order_by reversed-%}
+	{%-endif-%}
 
-{%-assign sorted_collection = collection limit: include.limit | sort: order_by-%}
-{%-if sort_order != "asc"-%}
-	{%-assign sorted_collection = collection limit: include.limit | sort: order_by reversed-%}
-{%-endif-%}
+	{%-if collection.size > 0-%}
+		<ul>
+			{%-for item in sorted_collection -%}
+				{%raw%}
 
-{%-if collection.size > 0-%}
-	<ul>
-		{%-for item in sorted_collection -%}
-			{%raw%}
-
-			{%endraw%}
-			<li>
-				<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-			</li>
-		{%-endfor-%}
-		{%-if include.show_more and limit_exceeded-%}
-			<li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
-		{%-endif-%}
-	</ul>
+				{%endraw%}
+				<li>
+					<a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+				</li>
+			{%-endfor-%}
+			{%-if include.show_more and limit_exceeded-%}
+				<li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
+			{%-endif-%}
+		</ul>
+	{%-endif-%}
 {%-endif-%}
